@@ -9,7 +9,7 @@
 <h3><a href="index.html">Home</a></h3>
 <hr>
 <h2>MEAL TABLE</h2>
-<table>
+<table border="1">
     <tr style="color: blue">
         <th>Date</th>
         <th>Description</th>
@@ -20,7 +20,7 @@
             <td><fmt:parseDate value="${meal.dateTime}" pattern="yyyy-MM-dd'T'HH:mm" var="parsedDateTime"  type="both"/>
                 <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${parsedDateTime }"/></td>
             <td>${meal.description}</td>
-            <td>${meal.calories}/</td>
+            <td>${meal.calories}</td>
         </tr>
     </c:forEach>
 </table>
