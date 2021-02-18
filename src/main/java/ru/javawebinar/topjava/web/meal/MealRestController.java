@@ -15,7 +15,7 @@ import static ru.javawebinar.topjava.util.ValidationUtil.checkNew;
 
 @Controller
 public class MealRestController {
-    protected final Logger log = LoggerFactory.getLogger(getClass());
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private MealService service;
@@ -51,5 +51,4 @@ public class MealRestController {
         assureIdConsistent(meal, id);
         service.update(meal, id);
     }
-
 }

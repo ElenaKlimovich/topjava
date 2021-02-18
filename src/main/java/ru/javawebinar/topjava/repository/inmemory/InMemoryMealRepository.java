@@ -3,8 +3,9 @@ package ru.javawebinar.topjava.repository.inmemory;
 import org.springframework.stereotype.Repository;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.repository.MealRepository;
-import ru.javawebinar.topjava.util.MealsUtil;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +19,13 @@ public class InMemoryMealRepository implements MealRepository {
     private final AtomicInteger counter = new AtomicInteger(0);
 
     {
-        MealsUtil.meals.forEach(meal -> save(meal, 0));
+        save(new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 10, 0), "Завтрак", 500, 1), 1);
+        save(new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 13, 0), "Обед", 1000, 1), 1);
+        save(new Meal(LocalDateTime.of(2020, Month.JANUARY, 30, 20, 0), "Ужин", 500, 1), 1);
+
+        save(new Meal(LocalDateTime.of(2021, Month.JANUARY, 11, 9, 0), "Breakfast", 555, 2), 2);
+        save(new Meal(LocalDateTime.of(2021, Month.JANUARY, 11, 14, 0), "Dinner", 444, 2), 2);
+        save(new Meal(LocalDateTime.of(2021, Month.JANUARY, 11, 19, 0), "Supper", 333, 2), 2);
     }
 
     @Override
