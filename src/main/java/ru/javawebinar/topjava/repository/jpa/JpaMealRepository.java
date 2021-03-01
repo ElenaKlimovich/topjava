@@ -34,7 +34,7 @@ public class JpaMealRepository implements MealRepository {
     @Override
     @Transactional
     public boolean delete(int id, int userId) {
-        return em.createNamedQuery(Meal.DELETE, Meal.class)
+        return em.createNamedQuery(Meal.DELETE)
                 .setParameter("id", id)
                 .setParameter("userId", userId)
                 .executeUpdate() != 0;
@@ -43,9 +43,9 @@ public class JpaMealRepository implements MealRepository {
     @Override
     public Meal get(int id, int userId) {
         Meal m = em.find(Meal.class, id);
-        if (m.getUser().getId() == userId)
+        if (m.getUser().getId() == userId) {
             return m;
-        else return null;
+        } else return null;
     }
 
     @Override
